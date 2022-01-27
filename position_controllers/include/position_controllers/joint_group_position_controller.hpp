@@ -39,7 +39,8 @@ public:
   JointGroupPositionController();
 
   POSITION_CONTROLLERS_PUBLIC controller_interface::return_type init(
-    const std::string & controller_name) override;
+    const std::string & controller_name,
+    const std::string & ns) override;
 };
 
 }  // namespace position_controllers

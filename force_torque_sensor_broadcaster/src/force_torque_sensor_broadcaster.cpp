@@ -29,9 +29,10 @@ ForceTorqueSensorBroadcaster::ForceTorqueSensorBroadcaster()
 }
 
 controller_interface::return_type ForceTorqueSensorBroadcaster::init(
-  const std::string & controller_name)
+  const std::string & controller_name,
+  const std::string & ns)
 {
-  auto ret = ControllerInterface::init(controller_name);
+  auto ret = ControllerInterface::init(controller_name, ns);
   if (ret != controller_interface::return_type::OK)
   {
     return ret;

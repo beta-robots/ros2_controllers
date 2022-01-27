@@ -50,10 +50,11 @@ JointTrajectoryController::JointTrajectoryController()
 }
 
 controller_interface::return_type JointTrajectoryController::init(
-  const std::string & controller_name)
+  const std::string & controller_name,
+  const std::string & ns)
 {
   // initialize lifecycle node
-  const auto ret = ControllerInterface::init(controller_name);
+  const auto ret = ControllerInterface::init(controller_name, ns);
   if (ret != controller_interface::return_type::OK)
   {
     return ret;

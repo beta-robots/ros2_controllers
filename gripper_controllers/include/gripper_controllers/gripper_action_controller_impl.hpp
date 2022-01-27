@@ -36,10 +36,11 @@ void GripperActionController<HardwareInterface>::preempt_active_goal()
 
 template <const char * HardwareInterface>
 controller_interface::return_type GripperActionController<HardwareInterface>::init(
-  const std::string & controller_name)
+  const std::string & controller_name,
+  const std::string & ns)
 {
   // initialize lifecycle node
-  const auto ret = ControllerInterface::init(controller_name);
+  const auto ret = ControllerInterface::init(controller_name, ns);
   if (ret != controller_interface::return_type::OK)
   {
     return ret;

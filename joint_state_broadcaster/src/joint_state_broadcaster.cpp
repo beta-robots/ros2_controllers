@@ -46,9 +46,9 @@ using hardware_interface::HW_IF_VELOCITY;
 
 JointStateBroadcaster::JointStateBroadcaster() {}
 
-controller_interface::return_type JointStateBroadcaster::init(const std::string & controller_name)
+controller_interface::return_type JointStateBroadcaster::init(const std::string & controller_name, const std::string & ns)
 {
-  auto ret = ControllerInterface::init(controller_name);
+  auto ret = ControllerInterface::init(controller_name, ns);
   if (ret != controller_interface::return_type::OK)
   {
     return ret;

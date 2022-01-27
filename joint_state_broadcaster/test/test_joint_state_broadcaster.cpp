@@ -71,7 +71,7 @@ void JointStateBroadcasterTest::TearDown() { state_broadcaster_.reset(nullptr); 
 
 void JointStateBroadcasterTest::SetUpStateBroadcaster()
 {
-  const auto result = state_broadcaster_->init("joint_state_broadcaster");
+  const auto result = state_broadcaster_->init("joint_state_broadcaster", "/");
   ASSERT_EQ(result, controller_interface::return_type::OK);
 
   std::vector<LoanedStateInterface> state_ifs;

@@ -42,7 +42,7 @@ public:
   ForceTorqueSensorBroadcaster();
 
   FORCE_TORQUE_SENSOR_BROADCASTER_PUBLIC
-  controller_interface::return_type init(const std::string & controller_name) override;
+  controller_interface::return_type init(const std::string & controller_name, const std::string & ns) override;
 
   FORCE_TORQUE_SENSOR_BROADCASTER_PUBLIC
   controller_interface::InterfaceConfiguration command_interface_configuration() const override;

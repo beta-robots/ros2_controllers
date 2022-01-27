@@ -165,7 +165,7 @@ protected:
 
 TEST_F(TestDiffDriveController, configure_fails_without_parameters)
 {
-  const auto ret = controller_->init(controller_name);
+  const auto ret = controller_->init(controller_name, "/");
   ASSERT_EQ(ret, controller_interface::return_type::OK);
 
   ASSERT_EQ(controller_->on_configure(rclcpp_lifecycle::State()), CallbackReturn::ERROR);
@@ -173,7 +173,7 @@ TEST_F(TestDiffDriveController, configure_fails_without_parameters)
 
 TEST_F(TestDiffDriveController, configure_fails_with_only_left_or_only_right_side_defined)
 {
-  const auto ret = controller_->init(controller_name);
+  const auto ret = controller_->init(controller_name, "/");
   ASSERT_EQ(ret, controller_interface::return_type::OK);
 
   controller_->get_node()->set_parameter(
@@ -193,7 +193,7 @@ TEST_F(TestDiffDriveController, configure_fails_with_only_left_or_only_right_sid
 
 TEST_F(TestDiffDriveController, configure_fails_with_mismatching_wheel_side_size)
 {
-  const auto ret = controller_->init(controller_name);
+  const auto ret = controller_->init(controller_name, "/");
   ASSERT_EQ(ret, controller_interface::return_type::OK);
 
   controller_->get_node()->set_parameter(
@@ -209,7 +209,7 @@ TEST_F(TestDiffDriveController, configure_fails_with_mismatching_wheel_side_size
 
 TEST_F(TestDiffDriveController, configure_succeeds_when_wheels_are_specified)
 {
-  const auto ret = controller_->init(controller_name);
+  const auto ret = controller_->init(controller_name, "/");
   ASSERT_EQ(ret, controller_interface::return_type::OK);
 
   controller_->get_node()->set_parameter(
@@ -229,7 +229,7 @@ TEST_F(TestDiffDriveController, configure_succeeds_when_wheels_are_specified)
 
 TEST_F(TestDiffDriveController, activate_fails_without_resources_assigned)
 {
-  const auto ret = controller_->init(controller_name);
+  const auto ret = controller_->init(controller_name, "/");
   ASSERT_EQ(ret, controller_interface::return_type::OK);
 
   controller_->get_node()->set_parameter(
@@ -243,7 +243,7 @@ TEST_F(TestDiffDriveController, activate_fails_without_resources_assigned)
 
 TEST_F(TestDiffDriveController, activate_succeeds_with_resources_assigned)
 {
-  const auto ret = controller_->init(controller_name);
+  const auto ret = controller_->init(controller_name, "/");
   ASSERT_EQ(ret, controller_interface::return_type::OK);
 
   controller_->get_node()->set_parameter(
@@ -258,7 +258,7 @@ TEST_F(TestDiffDriveController, activate_succeeds_with_resources_assigned)
 
 TEST_F(TestDiffDriveController, cleanup)
 {
-  const auto ret = controller_->init(controller_name);
+  const auto ret = controller_->init(controller_name, "/");
   ASSERT_EQ(ret, controller_interface::return_type::OK);
 
   controller_->get_node()->set_parameter(
@@ -303,7 +303,7 @@ TEST_F(TestDiffDriveController, cleanup)
 
 TEST_F(TestDiffDriveController, correct_initialization_using_parameters)
 {
-  const auto ret = controller_->init(controller_name);
+  const auto ret = controller_->init(controller_name, "/");
   ASSERT_EQ(ret, controller_interface::return_type::OK);
 
   controller_->get_node()->set_parameter(

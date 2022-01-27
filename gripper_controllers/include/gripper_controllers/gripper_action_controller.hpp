@@ -72,7 +72,7 @@ public:
   GRIPPER_ACTION_CONTROLLER_PUBLIC GripperActionController();
 
   GRIPPER_ACTION_CONTROLLER_PUBLIC
-  controller_interface::return_type init(const std::string & controller_name) override;
+  controller_interface::return_type init(const std::string & controller_name, const std::string & ns) override;
 
   /**
    * @brief command_interface_configuration This controller requires the

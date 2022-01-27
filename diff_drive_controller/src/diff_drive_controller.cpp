@@ -48,10 +48,10 @@ using lifecycle_msgs::msg::State;
 
 DiffDriveController::DiffDriveController() : controller_interface::ControllerInterface() {}
 
-controller_interface::return_type DiffDriveController::init(const std::string & controller_name)
+controller_interface::return_type DiffDriveController::init(const std::string & controller_name, const std::string & ns)
 {
   // initialize lifecycle node
-  auto ret = ControllerInterface::init(controller_name);
+  auto ret = ControllerInterface::init(controller_name, ns);
   if (ret != controller_interface::return_type::OK)
   {
     return ret;
